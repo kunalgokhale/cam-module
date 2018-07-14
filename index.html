@@ -17,7 +17,10 @@
         <div class="col-lg-12" style="margin: 20px;">
             <input id="qrInput" type="file" name="pic" accept="image/*" capture="camera" />
             <label for="qrInput">Scan QR Code</label>
-            
+
+            <div id="imageDiv">
+
+            </div>
         </div>
     </div>
 
@@ -39,6 +42,8 @@
         if (os == "Win32" || os == "iPhone"){
             $("#qrInput").attr("disabled", true);
         }
+
+        $("#imageDiv").prepend('<img id="theImg" src=$("#qrInput").val() />');
     </script>
 </body>
 </html>
