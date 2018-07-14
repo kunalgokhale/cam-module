@@ -82,13 +82,13 @@
             reader.readAsDataURL(file);
             reader.onload = function () {
                 console.log(reader.result);
+                decodeImageFromBase64(reader.result,function(decodedInformation){
+                    alert(decodedInformation);
+                });
             };
             reader.onerror = function (error) {
                 console.log('Error: ', error);
             };
-            decodeImageFromBase64(reader.result,function(decodedInformation){
-                alert(decodedInformation);
-            });
         }
         
         function decodeImageFromBase64(data, callback){
