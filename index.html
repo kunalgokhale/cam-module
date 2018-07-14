@@ -40,7 +40,9 @@
         if (os == "iPhone"){
             $("#qrInput").attr("disabled", true);
         }
-
+        $("#qrInput").change(function() {
+            alert("image uploaded");
+        });
         $("#imageDiv").prepend('<img id="theImg" src="$("#qrInput").val()" />');
     </script>
 </body>
