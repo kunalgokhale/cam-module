@@ -11,6 +11,24 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="grid.js"></script>
+    <script type="text/javascript" src="version.js"></script>
+    <script type="text/javascript" src="detector.js"></script>
+    <script type="text/javascript" src="formatinf.js"></script>
+    <script type="text/javascript" src="errorlevel.js"></script>
+    <script type="text/javascript" src="bitmat.js"></script>
+    <script type="text/javascript" src="datablock.js"></script>
+    <script type="text/javascript" src="bmparser.js"></script>
+    <script type="text/javascript" src="datamask.js"></script>
+    <script type="text/javascript" src="rsdecoder.js"></script>
+    <script type="text/javascript" src="gf256poly.js"></script>
+    <script type="text/javascript" src="gf256.js"></script>
+    <script type="text/javascript" src="decoder.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+    <script type="text/javascript" src="findpat.js"></script>
+    <script type="text/javascript" src="alignpat.js"></script>
+    <script type="text/javascript" src="databr.js"></script>
 </head>
 <body>
     <div class="row">
@@ -43,7 +61,8 @@
         }
         $("#qrInput").change(function() {
             //alert("image uploaded");
-            readURL(this);
+            // readURL(this);
+            getBase64(this);
         });
         
         function readURL(input) {
@@ -56,6 +75,17 @@
                 
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+        
+        function getBase64(file) {
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                console.log(reader.result);
+            };
+            reader.onerror = function (error) {
+                console.log('Error: ', error);
+            };
         }
     </script>
 </body>
