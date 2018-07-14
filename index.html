@@ -62,7 +62,8 @@
         $("#qrInput").change(function() {
             //alert("image uploaded");
             // readURL(this);
-            getBase64(this);
+            var files = document.getElementById('qrInput').files;
+            getBase64(files[0]);
         });
         
         function readURL(input) {
@@ -85,6 +86,16 @@
             reader.onerror = function (error) {
                 console.log('Error: ', error);
             };
+            decodeImageFromBase64(reader.result,function(decodedInformation){
+                alert(decodedInformation);
+            });
+        }
+        
+        function decodeImageFromBase64(data, callback){
+            // set callback
+            qrcode.callback = callback;
+            // Start decoding
+            qrcode.decode(data)
         }
     </script>
 </body>
